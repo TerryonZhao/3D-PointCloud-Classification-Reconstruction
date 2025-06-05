@@ -1,0 +1,19 @@
+name: TIF360_proj
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - pytorch
+  - torchvision
+  - torchaudio
+  - numpy
+  - scikit-learn
+  - h5py
+  - matplotlib
+  - tqdm
+  - pyyaml
+  - pip:
+      - open3d
+      - pytorch3d  # 如果失败，可以手动注释掉这一行再安装

@@ -1,0 +1,42 @@
+# 数据集配置
+data:
+  dataset_path: "datasets"
+  train_file: "modelnet10_train_1024.h5"
+  test_file: "modelnet10_test_1024.h5"
+  num_points: 1024
+  num_classes: 10
+  batch_size: 32
+
+# 分类模型配置
+classification:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 100
+  save_path: "models/classification_best.pth"
+  checkpoint_interval: 10
+
+# 重建模型配置
+reconstruction:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  epochs: 150
+  save_path: "models/autoencoder_best.pth"
+  checkpoint_interval: 10
+  latent_dim: 512
+  kl_weight: 0.01
+
+# 补全模型配置
+completion:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  epochs: 150
+  save_path: "models/PCN_best.pth"
+  checkpoint_interval: 10
+  partial_factor: 0.7
+
+# 结果和可视化配置
+results:
+  classification_dir: "results/classification"
+  reconstruction_dir: "results/reconstruction"
+  visualization_dir: "results/visualization"
+  logs_dir: "results/logs"

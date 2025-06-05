@@ -1,0 +1,19 @@
+Overall accuracy: 0.9119
+
+Classification report:
+              precision    recall  f1-score   support
+
+     bathtub       0.98      0.86      0.91        50
+         bed       0.93      0.99      0.96       100
+       chair       0.99      0.99      0.99       100
+        desk       0.88      0.78      0.83        86
+     dresser       0.83      0.79      0.81        86
+     monitor       1.00      0.99      0.99       100
+ night_stand       0.69      0.78      0.73        86
+        sofa       0.91      1.00      0.95       100
+       table       0.92      0.87      0.89       100
+      toilet       1.00      0.99      0.99       100
+
+    accuracy                           0.91       908
+   macro avg       0.91      0.90      0.91       908
+weighted avg       0.91      0.91      0.91       908
