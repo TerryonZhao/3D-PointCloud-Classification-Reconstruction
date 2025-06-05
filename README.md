@@ -144,3 +144,64 @@ The ModelNet dataset is widely available from various sources. In this study, we
 - https://3dshapenets.cs.princeton.edu/
 - https://modelnet.cs.princeton.edu/
 - https://www.kaggle.com/datasets/balraj98/modelnet10-princeton-3d-object-dataset/data
+
+---
+
+## 🔍 Detailed Results
+
+### Classification Performance
+
+The PointNet++ based classification model achieved an overall accuracy of 91.19% on the ModelNet10 test set. Below is a summary of the per-class performance:
+
+| Class       | Precision | Recall | F1-Score | Support |
+|-------------|-----------|--------|----------|---------|
+| bathtub     | 0.98      | 0.86   | 0.91     | 50      |
+| bed         | 0.93      | 0.99   | 0.96     | 100     |
+| chair       | 0.99      | 0.99   | 0.99     | 100     |
+| desk        | 0.88      | 0.78   | 0.83     | 86      |
+| dresser     | 0.83      | 0.79   | 0.81     | 86      |
+| monitor     | 1.00      | 0.99   | 0.99     | 100     |
+| night_stand | 0.69      | 0.78   | 0.73     | 86      |
+| sofa        | 0.91      | 1.00   | 0.95     | 100     |
+| table       | 0.92      | 0.87   | 0.89     | 100     |
+| toilet      | 1.00      | 0.99   | 0.99     | 100     |
+
+Key observations:
+- Highest performance on monitor and toilet classes (99% F1-score)
+- Most challenging class was night_stand (73% F1-score)
+- Confusion primarily occurred between geometrically similar classes (desk/table, dresser/night_stand)
+
+![Confusion Matrix](/results/classification/confusion_matrix.png)
+![Class Accuracy](/results/classification/class_accuracy.png)
+![t-SNE Visualization](/results/classification/tsne_visualization.png)
+
+### Point Cloud Completion Performance
+
+Our Point Cloud Completion Network (PCN) showed impressive performance in reconstructing complete 3D shapes from partial inputs. The model achieved a steady decrease in Chamfer Distance loss through training:
+
+- Training started with a loss of 0.106
+- By epoch 10, the loss decreased to 0.026
+- Fine-grained completion showed better results than coarse reconstruction
+
+The training progression demonstrates the model's ability to learn increasingly accurate 3D shape representations.
+
+![CD Loss Per Class](/results/reconstruction_PCN/cd_loss_per_class.png)
+![All Classes Partial Completion](/results/reconstruction_PCN/all_classes_partial_50.png)
+
+### Reconstruction Comparisons
+
+Comparing different visibility levels and reconstruction methods:
+
+1. **Chair Reconstruction**: Visualization shows improved detail recovery even with only 50% visibility
+   ![Chair Visibility Comparison](/results/reconstruction_PCN/chair_visibility_comparison.png)
+
+2. **Table Reconstruction**: The network successfully reconstructs complex geometrical features
+   ![Table Visibility Comparison](/results/reconstruction_PCN/table_visibility_comparison.png)
+
+3. **Comparison with FoldingNet**: PCN demonstrates superior performance in maintaining fine details
+   ![PCN vs FoldingNet](/results/reconstruction_PCN/fine_pcn_vs_fdn.png)
+
+4. **Classification vs Reconstruction**: Joint analysis showing correlation between classification confidence and reconstruction accuracy
+   ![Classification vs Reconstruction](/results/reconstruction_PCN/classification_vs_reconstruction_with_pcn.png)
+
+The results demonstrate that our proposed approach effectively handles 3D shape classification and reconstruction from partial point clouds, with particularly strong performance on objects with distinctive geometric features.
