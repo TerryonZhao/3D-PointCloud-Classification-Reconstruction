@@ -51,5 +51,11 @@ Icon
 logs/
 log/
 
-# Exceptions - Keep model checkpoints
-!models/*.pth
+# Datasets - too large for GitHub
+datasets/
+*.h5
+
+# Models - we're not keeping model checkpoints for now
+models/*.pth
+# Exceptions - Keep model checkpoints (commented out)
+# !models/*.pth
