@@ -1,6 +1,6 @@
 # 3D Point Cloud Classification and Reconstruction
 
-This project focuses on applying deep learning techniques to classify and reconstruct 3D point cloud data. Based on the ModelNet10 dataset, we utilize Point#### 2. Grouping
+This project focuses on applying deep learning techniques to classify and reconstruct 3D point cloud data. Based on the ModelNet10 dataset, utilizing PointNet++ as encoder, PCN and FoldingNet as decoder.
 
 
 ---
@@ -129,12 +129,6 @@ python src/visualize_cd_loss.py
 Understanding and reconstructing 3D shapes from data is a fundamental challenge in robotics, virtual reality, and computer vision. This project introduces deep learning techniques for 3D shape classification and reconstruction using the ModelNet10 dataset, one of the most widely used benchmarks for point cloud analysis. We develop and evaluate models for object classification and explore methods for reconstructing incomplete 3D shapes from limited or occluded data. Through this project, we gain practical experience in 3D deep learning and understand the challenges and techniques involved in recognizing and reconstructing 3D objects from partial information.
 
 Reference: 3D ShapeNets: A Deep Representation for Volumetric Shapes, https://arxiv.org/abs/1406.5670 
-
----
-
-## Project Objectives
-
-Develop and compare deep learning models for 3D shape classification to evaluate their performance in accurately identifying objects. Additionally, design a deep learning model capable of completing missing parts of 3D objects given incomplete point cloud data. This can be achieved by deliberately removing portions of the data or by adjusting the view of objects.
 
 ---
 
